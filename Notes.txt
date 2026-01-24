@@ -1,0 +1,12 @@
+Basic mechanisms in web applications:
+
+- front end runs in the browser --> on the client's machine
+- back end runs in the server --> handles requests, data validation, etc.
+
+- Uniform Resource Locator (URL): the "address of a website" --> enter it into the browser --> sends a request to the server hosting the website
+- These interactions between the browser and the server are defined by the HTTP, Hypertext Transfer Protocol.
+
+- Requesting a Page: the server can return the requested webpage by either generating the HTML file and returning it to the client, or generating a data file and sending it to the client to build the webpage (i.e., the frontend builds the webpage) --> The latter being the best practice in the in
+
+
+
