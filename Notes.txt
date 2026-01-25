@@ -1,0 +1,108 @@
+Basic mechanisms in web applications:
+
+- front end runs in the browser --> on the client's machine
+- back end runs in the server --> handles requests, data validation, etc.
+
+- Uniform Resource Locator (URL): the "address of a website" --> enter it into the browser --> sends a request to the server hosting the website
+- These interactions between the browser and the server are defined by the HTTP, Hypertext Transfer Protocol.
+
+- Requesting a Page: the server can return the requested webpage by either generating the HTML file and returning it to the client, or generating a data file and sending it to the client to build the webpage (i.e., the frontend builds the webpage)
+ --> The latter being the best practice in the industry
+
+
+
+Project Notes:
+
+- should I push pipfile and pipfile.lock?
+- learn how to make and activate a venv using normal commands, not pipenv
+- django-admin is a utility that comes with django
+django-admin startproject <name> --> creates a django Project
+if you add ".", django creates the project in the current directory
+
+
+Django Directory file structure:
+init file: defines the directory as a package
+settings file: to define the settings of the web application
+urls file: to store the urls of the web application
+asgi and wsgi: for deployment
+
+other files:
+
+manage.py: a wrapper around django-admin utility
+now we use it instead of django-admin
+--> reason for this is that manage.py takes into account the application's settings
+
+python manage.py <django-admin command>
+
+Apps in a Django Project:
+
+each app in a django project has a certain functionality
+got to settings>installedapps
+you will find the default apps that django installs for you to manage your project:
+django.contrib.admin --> gives the admin interface for managing the data
+django.contrib.auth --> used for authenticating users
+django.contrib.contenttypes
+django.contrib.sessions --> legacy/not used anymore --> a session is a temporary memory
+on the server for managing users data, now since we build APIs with django,
+we do not use the sessions app --> delete it
+django.contrib.messages --> used for displaying one-time notifications for the user
+django.contrib.staticfiles --> for serving static files, like images, css files and so on
+
+another django command: startapp <name>
+--> makes a new 'app' (a whole project in django is the complete web application structure)
+
+boilerplate file structure of a django 'app':
+app_name/
+    ├── migrations/         # Stores database changes (empty initially) / for generating database tables
+    │   └── __init__.py
+    ├── __init__.py         # Tells Python this directory is a package
+    ├── admin.py            # Configuration for the Django Admin panel / where we define how the admin interface of this app is going to look like
+    ├── apps.py             # App configuration settings / where we configure this app
+    ├── models.py           # Database schema (tables and fields) / defining model classes for this app
+    ├── tests.py            # Unit tests for this specific app
+    └── views.py            # Request/Response logic (your functions)
+
+Note that Django uses the MVT/MVC model architecture in web development:
+and an admin file provides the  admin panel (GUI?)
+
+- do not forget to add the new app to the installed apps list in the settings file
+
+Notes on the MVC/MVT architecture:
+
+Model: we use model classes to pull data from the database and present to the user
+Views: request handler
+more info on views:
+HTTP is a request-response protocol, every data exchange involves a request and a response
+here is where views is used
+
+view functions:
+are defined in the views file; a function that takes a request and returns a response
+notes about views and url mapping can be found in the playground views and url files and the main urls file
+
+- Using Templates: (returning HTML content to the client - HTML code generated in the server)
+add a templates folder to your specific app (for html code associated with that app)
+
+- we used django debug toolbar, learn more about it later 
+
+- DATA MODELS: how to store and retrieve data
+
+data models used in an e-commerce app:
+these are the basic entities that data are stored in and flow from and to, and have different kinds
+of relationships
+for a product: title, description, price, inventory
+for a collection: title
+for a cart: ...
+
+organizing data models in apps:
+each app in django has a different functionality --> each app has a unique data model
+
+- entities with an independent functionality go into their own app
+- entities that are codependent are placed within the same app
+- do minimal coupling and high focus
+
+- Creating Model classes: each entity has a class defined in the models file of the app it belongs to
+
+NOTE: LEARN DATA MODELLING AND RELATIONAL DATABASES!!!
+
+- DEFINING ONE-TO-ONE RELATIONSHIPS:
+- DEFINING ONE-TO-MANY RELATIONSHIPS:
