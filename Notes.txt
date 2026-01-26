@@ -106,3 +106,6 @@ NOTE: LEARN DATA MODELLING AND RELATIONAL DATABASES!!!
 
 - DEFINING ONE-TO-ONE RELATIONSHIPS:
 - DEFINING ONE-TO-MANY RELATIONSHIPS:
+- DEFINING MANY-TO-MANY RELATIONSHIPS:
+- Resolving Circular Relationships: having 2 distinct 1-* relationships does not impy having a *-* relationship!
+- generic relationships:
