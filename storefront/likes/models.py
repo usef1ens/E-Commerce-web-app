@@ -12,6 +12,6 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 
 class LikedItem(models.Model): # tells which user liked which object
     user = models.ForeignKey(User, on_delete = models.CASCADE) # if we delete the user, the like disappear
-    liked_content_type = models.ForeignKey(ContentType, on_delete = models.CASCADE) # if we delete the object, like disappears
-    liked_object_ID = models.PositiveIntegerField() # assuming that the ID is a primary key
+    content_type = models.ForeignKey(ContentType, on_delete = models.CASCADE) # if we delete the object, like disappears
+    object_id = models.PositiveIntegerField() # assuming that the ID is a primary key
     liked_object_type = GenericForeignKey() 

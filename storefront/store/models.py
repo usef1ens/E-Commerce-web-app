@@ -51,6 +51,7 @@ class Order(models.Model):
 class Adress(models.Model):
     street = models.CharField(max_length= 255)
     city = models.CharField(max_length= 255)
+    zip = models.CharField(max_length= 12, default= '0')
     customer = models.OneToOneField(Customer, on_delete = models.CASCADE, primary_key= True)
     # when the customer is deleted, the address is also deleted, and the customer is linked by the 
     # above data field
@@ -66,6 +67,7 @@ class Cart(models.Model):
 # let us define a class for products and make it inherit the Model class from models
 class Product(models.Model):
     title = models.CharField(max_length=255) # mandatory parameter for defining max length
+    slug = models.SlugField(null= True)
     description = models.TextField() # has no upper limit
     price = models.DecimalField(max_digits=6, decimal_places=2) # FloatField has rounding issues
     # so use DecimalField for prices
